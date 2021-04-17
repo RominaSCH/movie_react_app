@@ -1,7 +1,8 @@
 import React from "react";
 
-function Favorite(){
-  return <h3>I Like Programm</h3>;
+function Favorite(props){
+  console.log(props);
+  return <h3>I Like Programming</h3>;
 }
 
 function App() {
