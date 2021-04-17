@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 
 //function name's first alphabet must be upper?
@@ -14,44 +15,58 @@ const langILike = [
   {
     id:1,
     name:"Python",
-    image:"https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Python-logo-notext.svg/768px-Python-logo-notext.svg.png"
+    image:"https://live.staticflickr.com/3763/13541540425_63372041e1_n.jpg",
+    rating:4
   },
   {
     id:2,
     name:"Javascript",
-    image:"https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Unofficial_JavaScript_logo_2.svg/480px-Unofficial_JavaScript_logo_2.svg.png"
+    image:"https://cdn.iconscout.com/icon/free/png-256/javascript-2752148-2284965.png",
+    rating:4.9
   },
   {
     id:3,
     name:"Django",
-    image:"https://blog.kakaocdn.net/dn/cVaSOX/btqD9jVw36X/jHpIEqn2EAk7xdKMMmpEP0/img.png"
+    image:"https://img.stackshare.io/service/994/4aGjtNQv.png",
+    rating:5
   },
   {
     id:4,
     name:"React",
-    image:"https://www.pinclipart.com/picdir/middle/537-5374089_react-js-logo-clipart.png"
+    image:"https://seeklogo.com/images/R/react-logo-7B3CE81517-seeklogo.com.png",
+    rating:4.7
   },
   {
     id:5,
     name:"Tailwind",
-    image:"https://ichi.pro/assets/images/max/640/1*5QD8DKhOjRe-gcYjozlLNQ.png"
+    image:"https://d25hn4jiqx5f7l.cloudfront.net/companies/logos/medium/tailwind_1513362838.jpg?1513362838",
+    rating:3.5
   }
 ];
 
-function Lang({name, image}){ //{name} = props.name
+function Lang({name, image, rating}){ //{name} = props.name
   return (
     <div>
-      <span>I like {name}</span>
+      <h1>I like {name}</h1>
+      <h3>{rating}/5.0</h3>
       <img src={image} alt={name} />
     </div>
   );
 }
 
+Lang.propTypes = { //무조건 propTypes로 이름지어야함
+  name: PropTypes.string.isRequired,
+  image: PropTypes.string.isRequired,
+  rating: PropTypes.number
+  //isRequired 가 없다면 있어도 없어도 알려주지 않음.
+  //string, number, boolean, array, function, object, symbol, node element, instanceof, Oneof and others check
+}; //자료형이 맞게 잘 들어갔나 체크하는거 강의 #2.4
+
 function App() {
   return (
   <div>
     {langILike.map(item => (
-      <Lang key={item.id} name={item.name} image={item.image} />
+      <Lang key={item.id} name={item.name} image={item.image} rating={item.rating} />
     ))}
   </div>
   );
