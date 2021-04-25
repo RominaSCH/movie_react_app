@@ -1,14 +1,24 @@
 import React from "react";
 import PropTypes from "prop-types";
 import "./Movie.css";
+import {Link} from "react-router-dom";
 
 
 //component에 state가 필요 없을 경우는 class component말고
 //function을 써도 된다.
-function Movie({year, title, summary, poster, genres}){
+function Movie({ id, year, title, summary, poster, genres}){
     return (
+      <Link to={{
+        pathname:`/movie/${id}`,
+        state:{
+          year,
+          title,
+          summary,
+          poster,
+          genres
+        }
+      }} >
         <div className="movie">
-          {/* <label htmlFor="movie"></label> */}
           <img src={poster} alt={title} title={title} />
           <div className="movie__data">
             <h3 style={{}} className="movie__title">{title}</h3>
@@ -18,8 +28,9 @@ function Movie({year, title, summary, poster, genres}){
             )}</ul>
             <div className="movie__summary">{summary.slice(0, 135)}...</div>
             
+            </div>
           </div>
-        </div>
+        </Link>
       );
 }
 
