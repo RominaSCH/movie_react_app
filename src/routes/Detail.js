@@ -14,7 +14,7 @@ class Detail extends React.Component{
         if(location.state){
             return (
                 <div className="detail-container">
-                    <img src={location.state.poster} />
+                    <img src={location.state.poster} alt={location.state.poster} title={location.state.poster}/>
                     <div className="text-box">
                     <h1 className="detail__title">{location.state.title}</h1>
                     {/* <h5 className="detail__year">{location.state.year}</h5> */}

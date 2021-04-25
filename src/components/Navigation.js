@@ -4,8 +4,8 @@ import "./Navigation.css";
 
 function Navigation(){
     return (<div className="nav">
-        <Link to="/">Home</Link>
-        <Link to="/about">About</Link>
+        <Link to="/">HOME</Link>
+        <Link to="/about">ABOUT</Link>
     </div>);
 }
 //Navigation no props, magical props..
